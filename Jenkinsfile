@@ -9,14 +9,16 @@ pipeline {
     stage('Run maven') {
       steps {
         sh 'set'
+        sh 'hostname  && echo $HOSTNAME'
         sh "echo OUTSIDE_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}"
         container('maven') {
           sh 'echo MAVEN_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
           sh 'mvn -version'
+          sh "echo Workspace dir is ${pwd()}"
         }
         container('busybox') {
           sh 'echo BUSYBOX_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
-          sh '/bin/busybox'
+          // sh '/bin/busybox'
         }
       }
     }
