@@ -16,6 +16,7 @@ pipeline {
           sh 'mvn -version'
           sh "echo Workspace dir is ${pwd()}"
           sh 'ls -l "${WORKSPACE}"'
+          sh 'mount'
         }
         container('busybox') {
           sh 'echo BUSYBOX_CONTAINER_ENV_VAR = ${CONTAINER_ENV_VAR}'
