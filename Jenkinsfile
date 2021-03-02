@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    kubernetes {
+    k3d_localhost {
       yamlFile 'KubernetesPod.yaml'
     }
   }
