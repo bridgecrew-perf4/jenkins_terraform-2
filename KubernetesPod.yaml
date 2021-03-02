@@ -15,8 +15,8 @@ spec:
       value: maven
   - name: busybox
     image: busybox
-    command: [ "/bin/bash", "-c", "--" ]
-    args: [ "while true; do sleep 30; done;" ]
+    command: 
+    - cat
     tty: true
     env:
     - name: CONTAINER_ENV_VAR
